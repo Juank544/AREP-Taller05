@@ -10,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        secure("keystores/ecikeystore.p12", "192837", null, null);
+        secure(getKeyStore(), "192837", null, null);
         port(getPort());
         get("/hello", (req,res) -> "Hello!");
     }
@@ -20,5 +20,12 @@ public class App
             return Integer.parseInt(System.getenv("PORT"));
         }
         return 5000;
+    }
+
+    private static String getKeyStore(){
+        if (System.getenv("KEYSTORE") != null){
+            return System.getenv("KEYSTORE");
+        }
+        return "keystores/ecikeystore.p12";
     }
 }

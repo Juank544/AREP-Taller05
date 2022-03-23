@@ -7,3 +7,7 @@ Debido a que con intelliJ se detiene la ejecución, es necesario emplear el sigu
 `mvn exec:java -Dexec.mainClass="co.edu.escuelaing.App"`
 
 ***Se debe poner "https" en el link del endpoint***
+
+Para exportar el certificado a un archivo se usa el siguiente comando:
+
+`keytool -export -keystore ./ecikeystore.p12 -storetype pkcs12 -alias ecikeypair -file ecicert.cer`
