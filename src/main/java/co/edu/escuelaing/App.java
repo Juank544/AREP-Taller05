@@ -1,7 +1,6 @@
 package co.edu.escuelaing;
 
-import static spark.Spark.get;
-import static spark.Spark.port;
+import static spark.Spark.*;
 
 /**
  * Hello world!
@@ -11,6 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
+        secure("keystores/ecikeystore.p12", "192837", null, null);
         port(getPort());
         get("/hello", (req,res) -> "Hello!");
     }
